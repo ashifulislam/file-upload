@@ -35,4 +35,22 @@ class FileUploadController extends Controller
     return back()->with('Success','Image is uploaded successfully');
             
     }
+    public function view_file(Request $request)
+    {
+        // $id = 1;
+        // $attachment = FileUpload::find($id);
+        // dd($attachment);
+        // $headers = [
+ 
+        //     'Content-Type'        => 'application/jpeg',
+ 
+        //     'Content-Disposition' => 'attachment; filename="'. $attachment->name .'"',
+ 
+        // ];
+ 
+        // return \Response::make(Storage::disk('s3')->get($attachment->url), 200, $headers);
+    }
 }
+
+    
+
