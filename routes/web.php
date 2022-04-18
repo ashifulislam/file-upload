@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::get('/file_upload','FileUploadController@upload_file')->name('upload.file');
 Route::post('/file_store','FileUploadController@store')->name('store.file');
 Route::get('/view_file','FileUploadController@view_file')->name('view.file');
+Route::delete('/delete_file','FileUploadController@destroy')->name('delete.file');

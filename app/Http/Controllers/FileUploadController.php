@@ -16,16 +16,13 @@ class FileUploadController extends Controller
     }
     public function store(Request $request)
     {
-    // $request->validate($request,[
-    //     'image' => 'required|image|max:2048'
-    // ]);
 
     //checking the file you clicked or not
     if($request->hasFile('image'))
     {
         $file = $request->file('image');
         //grab the extention
-        $name = time().$file->getClientOriginalName();
+        $name = $file->getClientOriginalName();
         //file path is defined here
         $filePath = $name;
 
@@ -37,18 +34,14 @@ class FileUploadController extends Controller
     }
     public function view_file(Request $request)
     {
-        // $id = 1;
-        // $attachment = FileUpload::find($id);
-        // dd($attachment);
-        // $headers = [
+       return view('view');
+    }
  
-        //     'Content-Type'        => 'application/jpeg',
- 
-        //     'Content-Disposition' => 'attachment; filename="'. $attachment->name .'"',
- 
-        // ];
- 
-        // return \Response::make(Storage::disk('s3')->get($attachment->url), 200, $headers);
+    public function destroy()
+    {
+       return Storage::disk('s3')->delete('https://brandlyimagedev-resized.s3.ap-southeast-1.amazonaws.com/large_prince.jpg');
+        // return back()->with('Success','Image is deleted successfully');
+
     }
 }
 
